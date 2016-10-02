@@ -1,0 +1,22 @@
+# EMBEDDED SERVER CONFIGURATION
+server:
+    port: ${port:8081}
+    error.whitelabel.enabled: false
+# PROFILES
+spring:
+    application.name: fotix-discovery
+    profiles.active: prod
+# EUREKA
+eureka:
+  instance:
+      hostname: localhost
+      port: ${port:8081}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+# LOGGING
+logging.level.org.springframework.security: DEBUG
